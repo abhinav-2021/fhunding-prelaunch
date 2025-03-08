@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fhunding - Equity Crowdfunding Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/png" href="/media/favicon-16x16.png">
+    
+    
+    
+  
+    <style>
+        * {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background: #00140d;
+             color: #eaeaea;
+        }
+
+        .logo {
+            transform: scale(1);
+            padding-left: 1rem;
+        }
+
+       
+        /* .logo_footer {
+            
+        } */
+
+        .gradient-text {
+            background: linear-gradient(45deg, #00ff88, #007853);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .creative-box {
+            background: linear-gradient(145deg, #002618, #00140d);
+            border: 2px solid #004630;
+            border-radius: 30px;
+            box-shadow: 0 20px 50px rgba(0, 70, 48, 0.3);
+        }
+
+        .video-container {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.2);
+            transform-style: preserve-3d;
+        }
+
+        .carousel-item {
+        scroll-snap-align: start;
+        transition: transform 0.3s ease;
+    }
+
+    #carousel::-webkit-scrollbar {
+        height: 8px;
+        background-color: #002618;
+    }
+
+    #carousel::-webkit-scrollbar-thumb {
+        background-color: #00ff88;
+        border-radius: 4px;
+    }
+
+    .indicator.active {
+        background-color: #00ff88;
+        transform: scale(1.2);
+    }
+
+    @media (max-width: 760px) {
+    /* Your CSS styles here */
+    .logo {
+        transform: scale(1.2);
+        padding-left: 0rem;               
+               
+    }
+    .px-4 .logo{
+            padding-left: 0rem;
+            padding-right: 1.8rem;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <!-- Updated Header Section -->
+    <header class="fixed w-full top-0 z-50 bg-[#00140d]/90 backdrop-blur-sm shadow-sm">
+        <nav class="w-full px-4 py-3 md:px-6 md:py-4 flex justify-between items-center">
+            <!-- Empty div for spacing -->
+            <div class="md:hidden w-8"></div>
+            
+            <!-- Centered Logo -->
+            <img src="/media/logo-no-background.png" alt="Fhunding" 
+                 class="h-10 md:h-12 mx-auto md:mx-0 logo">
+            
+            <!-- Early Access Button - Hidden on Mobile -->
+            <a href="#waitlist" 
+               class="hidden md:flex bg-gradient-to-r from-[#00ff88] to-[#007853] text-black px-6 py-2 rounded-xl font-bold hover:scale-105 transition-transform">
+                Early Access
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="min-h-screen flex items-center justify-center text-center px-6 pt-24">
+        <div class="max-w-4xl mx-auto">
+            <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
+                <span class="gradient-text">Reimagining</span> Startup<br>
+                Funding Ecosystem
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+                India's first AI-powered Reward Based crowdfunding platform connecting visionary founders with strategic Fhunder's
+            </p>
+            <button class="bg-gradient-to-r from-[#00ff88] to-[#007853] text-black px-12 py-5 rounded-2xl text-lg font-bold hover:scale-105 transition-transform">
+                Get Early Access
+            </button>
+        </div>
+    </section>
+
+   <!-- Video Section (Modified) -->
+<section class="py-16 px-6"> <!-- Reduced vertical padding -->
+    <div class="container mx-auto max-w-2xl creative-box p-6 md:p-8"> <!-- Smaller container -->
+        <div class="video-container relative aspect-square w-64 h-64 md:w-96 md:h-96 mx-auto"> <!-- Explicit dimensions -->
+            <video autoplay muted loop playsinline class="w-full h-full object-cover rounded-lg"> <!-- Rounded corners -->
+                <source src="/media/fhunding intro.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+</section>
+
+<!-- Carousel Section -->
+<section class="py-24 px-6">
+    <div class="container mx-auto max-w-7xl">
+        <h2 class="text-4xl font-bold mb-16 gradient-text text-center">What Actually it is?</h2>
+        
+        <div class="relative group">
+            <!-- Carousel Container -->
+            <div id="carousel" class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth space-x-8 pb-6">
+                <!-- Carousel Items (Repeat 10x) -->
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/1.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/2.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/3.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/4.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/5.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/6.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/7.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/8.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/9.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
+                    <div class="p-8">
+                        <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
+                            <img src="media/caraousal/10.png" alt="Success Story" class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- Add 9 more carousel items -->
+            </div>
+
+            <!-- Navigation Controls -->
+            <button id="prevBtn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-8 bg-[#00ff88] text-black w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextBtn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-8 bg-[#00ff88] text-black w-12 h-12 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Progress Indicators -->
+        <div class="flex justify-center space-x-2 mt-8">
+            <div class="w-3 h-3 rounded-full bg-[#004630] indicator active"></div>
+            <!-- Add 9 more indicators -->
+        </div>
+    </div>
+</section>
+
+    <!-- How It Works -->
+    <section class="py-24 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-16 gradient-text text-center">Our Process</h2>
+            <div class="grid md:grid-cols-4 gap-8">
+                <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
+                    <div class="text-4xl font-bold mb-4 gradient-text">01.</div>
+                    <h3 class="text-2xl font-semibold mb-4">Profile Creation</h3>
+                    <p class="text-gray-300">Create your Crowdfunding Campaign on fhunding.com</p>
+                </div>
+                <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
+                    <div class="text-4xl font-bold mb-4 gradient-text">02.</div>
+                    <h3 class="text-2xl font-semibold mb-4">Offer Reward</h3>
+                    <p class="text-gray-300">Fhunder's get reward like early acess, dicounts, limited editions etc.</p>
+                </div>
+                <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
+                    <div class="text-4xl font-bold mb-4 gradient-text">03.</div>
+                    <h3 class="text-2xl font-semibold mb-4">Promote</h3>
+                    <p class="text-gray-300">Promote your campaign & attaract backers (fhunder's).</p>
+                </div>
+                <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
+                    <div class="text-4xl font-bold mb-4 gradient-text">04.</div>
+                    <h3 class="text-2xl font-semibold mb-4">Collect Funds</h3>
+                    <p class="text-gray-300">Collect funds and deliver promised rewards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Comparison Section -->
+    <section class="py-24 px-6">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="text-4xl font-bold mb-16 gradient-text text-center">Why Fhunding?</h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="creative-box p-10">
+                    <h3 class="text-3xl font-bold mb-8 gradient-text">For Startups</h3>
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            Access to 5000+ verified Fhunder's
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            AI-powered pitch optimization
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            Legal & compliance support
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="creative-box p-10">
+                    <h3 class="text-3xl font-bold mb-8 gradient-text">For Fhunder's</h3>
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            Curated high-potential startups
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            Smart portfolio management
+                        </li>
+                        <li class="flex items-center gap-4">
+                            <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
+                            Secondary market access
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 px-6">
+        <div class="container mx-auto max-w-4xl">
+            <h2 class="text-4xl font-bold mb-16 gradient-text text-center">FAQs</h2>
+            <div class="space-y-6">
+                <div class="faq-item creative-box p-6" data-open="false">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
+                        <span class="text-xl font-semibold">What is Fhunding.com?</span>
+                        <i class="fas fa-chevron-down text-[#00ff88]"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
+                        <p class="pb-6 pt-4 text-gray-300">Fhunding.com is an innovative crowdfunding sharing platform designed to help early-stage startups and individuals secure funding from investors (fhunder's). We aim to revolutionize the funding ecosystem in India by making investment opportunities more accessible and transparent.</p>
+                    </div>
+                </div>
+                <div class="faq-item creative-box p-6" data-open="false">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
+                        <span class="text-xl font-semibold">How can I apply for funding on Fhunding.com?</span>
+                        <i class="fas fa-chevron-down text-[#00ff88]"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
+                        <p class="pb-6 pt-4 text-gray-300">Startups and individuals with innovative ideas can apply by signing up on our platform, submitting their project details, and choosing type of reward models. Once reviewed, eligible projects will be listed for investors to explore and support.</p>
+                    </div>
+                </div>
+                <div class="faq-item creative-box p-6" data-open="false">
+                    <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
+                        <span class="text-xl font-semibold">When will Fhunding.com go live?</span>
+                        <i class="fas fa-chevron-down text-[#00ff88]"></i>
+                    </button>
+                    <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
+                        <p class="pb-6 pt-4 text-gray-300">We are actively working on building the platform and expect to launch soon. Stay updated by signing up for early access and following us on our social media channels.</p>
+                    </div>
+                </div>
+                
+                
+                <!-- Add 5 more FAQs following same structure -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="py-24 px-6">
+        <div class="container mx-auto max-w-4xl creative-box p-12 text-center">
+            <h2 class="text-4xl font-bold mb-8 gradient-text">Join Our Exclusive Launch</h2>
+            <p class="text-xl text-gray-300 mb-12">Be among the first to experience next-gen funding</p>
+            
+            <form class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <input  id="email" type="email" placeholder="Enter professional email" 
+                       class="w-full md:w-96 px-6 py-4 rounded-xl bg-[#002618] border border-[#004630] focus:border-[#00ff88] focus:outline-none">
+                <button id="submit" type="submit" class="w-full md:w-auto bg-gradient-to-r from-[#00ff88] to-[#007853] text-black px-12 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
+                    Secure Spot
+                </button>
+            </form>
+            
+            <div class="mt-8 flex justify-center gap-4 text-gray-300">
+                <i class="fas fa-users"></i>
+                <span>2,450+ Professionals Registered</span>
+            </div>
+        </div>
+    </section>
+
+                    
+                
+<footer class="py-12 px-4 md:px-6 border-t border-[#004630]">
+    <div class="container mx-auto max-w-6xl">
+        <div class="flex flex-col md:flex-row flex-wrap gap-8 md:gap-12 lg:gap-24">
+            <!-- Brand Column -->
+            <div class="w-full md:w-auto text-center md:text-left">
+                <img src="/media/logo-no-background.png" alt="Fhunding" class="h-16 mx-auto md:mx-0 mb-6">
+                <div class="flex justify-center md:justify-start gap-6 mb-8 md:mb-0">
+                    <a href="#" class="text-[#00ff88] hover:text-white transition">
+                        <i class="fab fa-linkedin-in text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-[#00ff88] hover:text-white transition">
+                        <i class="fab fa-twitter text-2xl"></i>
+                    </a>
+                    <a href="#" class="text-[#00ff88] hover:text-white transition">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Sections -->
+            <div class="flex-1 grid grid-cols-2 md:flex gap-8 md:gap-12 lg:gap-48">
+                <div class="col-span-1">
+                    <h4 class="text-lg font-bold text-[#00ff88] mb-4 text-center md:text-left">Company</h4>
+                    <ul class="space-y-4 text-gray-300 text-center md:text-left">
+                        <li><a href="#" class="hover:text-white">About</a></li>
+                        <li><a href="#" class="hover:text-white">Blog</a></li>
+                        <li><a href="#" class="hover:text-white">Careers</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1">
+                    <h4 class="text-lg font-bold text-[#00ff88] mb-4 text-center md:text-left">Legal</h4>
+                    <ul class="space-y-3 text-gray-300 text-center md:text-left">
+                        <li><a href="#" class="hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="hover:text-white">Terms</a></li>
+                        <li><a href="#" class="hover:text-white">Compliance</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-span-2 md:col-span-1">
+                    <h4 class="text-lg font-bold text-[#00ff88] mb-4 text-center md:text-left">Contact</h4>
+                    <ul class="space-y-3 text-gray-300 text-center md:text-left">
+                        <li>fhunding@gmail.com</li>
+                        <li>+91 78798 32442</li>
+                        <li>Jabalpur, India</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Copyright -->
+        <div class="border-t border-[#004630] mt-8 pt-6 text-center">
+            <p class="text-gray-300 text-sm">© 2024 Fhunding. All rights reserved</p>
+        </div>
+    </div>
+</footer>
+
+    <script>
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Section Animations
+        gsap.utils.toArray("section").forEach(section => {
+            gsap.from(section, {
+                scrollTrigger: {
+                    trigger: section,
+                    start: "top center"
+                },
+                opacity: 0,
+                y: 100,
+                duration: 1
+            });
+        });
+
+        // FAQ Animations 
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const faqItem = btn.closest('.faq-item');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = btn.querySelector('i');
+            
+            // Toggle open state using data attribute
+            const isOpen = faqItem.getAttribute('data-open') === 'true';
+            
+            gsap.to(content, {
+                maxHeight: isOpen ? 0 : content.scrollHeight + "px",
+                duration: 0.3,
+                ease: "power2.inOut",
+                onStart: () => {
+                    faqItem.setAttribute('data-open', !isOpen);
+                }
+            });
+
+            gsap.to(icon, {
+                rotation: isOpen ? 0 : 180,
+                duration: 0.3
+            });
+        });
+    });
+
+    // Carousel Controls
+    let currentSlide = 0;
+    const carousel = document.getElementById('carousel');
+    const items = document.querySelectorAll('.carousel-item');
+    const indicators = document.querySelectorAll('.indicator');
+
+    function updateCarousel() {
+        const itemWidth = items[0].offsetWidth + 32; // width + margin
+        carousel.scrollTo({
+            left: itemWidth * currentSlide,
+            behavior: 'smooth'
+        });
+        
+        indicators.forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === currentSlide);
+        });
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+        currentSlide = (currentSlide + 1) % items.length;
+        updateCarousel();
+    });
+
+    document.getElementById('prevBtn').addEventListener('click', () => {
+        currentSlide = (currentSlide - 1 + items.length) % items.length;
+        updateCarousel();
+    });
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    carousel.addEventListener('touchstart', e => {
+        touchStartX = e.touches[0].clientX;
+    });
+
+    carousel.addEventListener('touchend', e => {
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = touchStartX - touchEndX;
+        
+        if (Math.abs(diff) > 50) {
+            if (diff > 0) {
+                currentSlide = (currentSlide + 1) % items.length;
+            } else {
+                currentSlide = (currentSlide - 1 + items.length) % items.length;
+            }
+            updateCarousel();
+        }
+    });
+
+
+    </script>
+
+    
+
+ 
+</body>
+</html>
