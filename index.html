@@ -86,7 +86,7 @@
     @media (max-width: 760px) {
     /* Your CSS styles here */
     .logo {
-        transform: scale(1.5);
+        transform: scale(1.3);
         padding-left: 0rem; 
         margin-top: 0.8rem; 
         margin-bottom: 0.8rem;    
@@ -159,7 +159,7 @@
                                 Secure My Spot
                             </button>
                         </form>
-                        <p id="message"></p>
+                        <div id="message" class="text-center mt-4 text-sm"></div>
                     </div>
                 </div>
             </div>
@@ -404,17 +404,18 @@
             <h2 class="text-4xl font-bold mb-8 gradient-text">Join Our Exclusive Launch</h2>
             <p class="text-xl text-gray-300 mb-12">Be among the first to experience next-gen funding</p>
             
-            <form class="flex flex-col md:flex-row gap-4 justify-center items-center">
-                <input  id="email" type="email" placeholder="Enter professional email" 
+            <form id="WaitlistForm" class="flex flex-col md:flex-row gap-4 justify-center items-center">
+                <input  id="WaitlistEmail" type="email" placeholder="Enter your email" 
                        class="w-full md:w-96 px-6 py-4 rounded-xl bg-[#002618] border border-[#004630] focus:border-[#00ff88] focus:outline-none">
                 <button type="submit" class="w-full md:w-auto bg-gradient-to-r from-[#00ff88] to-[#007853] text-black px-12 py-4 rounded-xl font-bold hover:scale-105 transition-transform">
                     Secure Spot
                 </button>
             </form>
+            <div id="WaitlistMessage" class="text-center mt-4 text-sm"></div>
             
             <div class="mt-8 flex justify-center gap-4 text-gray-300">
                 <i class="fas fa-users"></i>
-                <span>2,450+ Professionals Registered</span>
+                <span>Many Professionals Already Registered</span>
             </div>
         </div>
     </section>
@@ -480,10 +481,6 @@
 
     <!-- Scripts -->
 
-    
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database.js"></script>
-
     <script>
         // GSAP Animations
         gsap.registerPlugin(ScrollTrigger);
@@ -501,102 +498,7 @@
             });
         });
 
-
-        const modal = document.getElementById('earlyAccessModal');
-const modalContent = modal.querySelector('.creative-box');
-
-// Open modal
-function openModal() {
-    modal.classList.remove('hidden');
-    gsap.to(modal, { duration: 0.3, opacity: 1 });
-    gsap.to(modalContent, { duration: 0.3, scale: 1, opacity: 1, ease: "back.out(1.2)" });
-    modal.querySelector('input').focus();
-}
-
-// Close modal
-function closeModal() {
-    gsap.to(modalContent, { duration: 0.2, scale: 0.95, opacity: 0 });
-    gsap.to(modal, { duration: 0.2, opacity: 0, onComplete: () => {
-        modal.classList.add('hidden');
-    }});
-}
-
-
-
-// Close modal on backdrop click
-modal.addEventListener('click', (e) => {
-    if (e.target === modal) closeModal();
-});
-
-
-
-// Form Submission
-// Initialize Firebase
-
-const firebaseConfig = {
-    apiKey: "AIzaSyCmJmyU--fD4xKMzspPGPw82nVO1ob-KYE",
-    authDomain: "fhunding-email-signup.firebaseapp.com",
-    databaseURL: "https://fhunding-email-signup-default-rtdb.asia-southeast1.firebasedatabase.app",
-    projectId: "fhunding-email-signup",
-    storageBucket: "fhunding-email-signup.firebasestorage.app",
-    messagingSenderId: "738155434549",
-    appId: "1:738155434549:web:bb33c45e9ce969a4dbd77c"
-  };
-firebase.initializeApp(firebaseConfig);
-const database = firebase.database();
-
-// 🚀 Handle Form Submission
-document.getElementById("earlyAccessForm").addEventListener("submit", function(e) {
-  e.preventDefault();
-  
-  let email = document.getElementById("emailInput").value;
-  let message = document.getElementById("message");
-
-  if (!email) {
-    message.textContent = "Please enter a valid email!";
-    return;
-  }
-
-  // 🔥 Store Email in Firebase
-  database.ref("emails").push({ email: email })
-    .then(() => {
-      message.textContent = "Thanks for signing up!";
-      document.getElementById("emailInput").value = "";  // Clear input field
-    })
-    .catch(error => {
-      message.textContent = "Error! Please try again.";
-    });
-});
-
-
-
-        // FAQ Animations 
-    document.querySelectorAll('.faq-toggle').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const faqItem = btn.closest('.faq-item');
-            const content = faqItem.querySelector('.faq-content');
-            const icon = btn.querySelector('i');
-            
-            // Toggle open state using data attribute
-            const isOpen = faqItem.getAttribute('data-open') === 'true';
-            
-            gsap.to(content, {
-                maxHeight: isOpen ? 0 : content.scrollHeight + "px",
-                duration: 0.3,
-                ease: "power2.inOut",
-                onStart: () => {
-                    faqItem.setAttribute('data-open', !isOpen);
-                }
-            });
-
-            gsap.to(icon, {
-                rotation: isOpen ? 0 : 180,
-                duration: 0.3
-            });
-        });
-    });
-
-    // Carousel Controls
+        // Carousel Controls
     let currentSlide = 0;
     const carousel = document.getElementById('carousel');
     const items = document.querySelectorAll('.carousel-item');
@@ -645,12 +547,179 @@ document.getElementById("earlyAccessForm").addEventListener("submit", function(e
     });
 
 
+const modal = document.getElementById('earlyAccessModal');
+const modalContent = modal.querySelector('.creative-box');
+
+// Open modal
+function openModal() {
+    modal.classList.remove('hidden');
+    gsap.to(modal, { duration: 0.3, opacity: 1 });
+    gsap.to(modalContent, { duration: 0.3, scale: 1, opacity: 1, ease: "back.out(1.2)" });
+    modal.querySelector('input').focus();
+}
+
+// Close modal
+function closeModal() {
+    gsap.to(modalContent, { duration: 0.2, scale: 0.95, opacity: 0 });
+    gsap.to(modal, { duration: 0.2, opacity: 0, onComplete: () => {
+        modal.classList.add('hidden');
+    }});
+}
+
+
+
+// Close modal on backdrop click
+modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModal();
+});
+
+
+
+        // FAQ Animations 
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const faqItem = btn.closest('.faq-item');
+            const content = faqItem.querySelector('.faq-content');
+            const icon = btn.querySelector('i');
+            
+            // Toggle open state using data attribute
+            const isOpen = faqItem.getAttribute('data-open') === 'true';
+            
+            gsap.to(content, {
+                maxHeight: isOpen ? 0 : content.scrollHeight + "px",
+                duration: 0.3,
+                ease: "power2.inOut",
+                onStart: () => {
+                    faqItem.setAttribute('data-open', !isOpen);
+                }
+            });
+
+            gsap.to(icon, {
+                rotation: isOpen ? 0 : 180,
+                duration: 0.3
+            });
+        });
+    });
+
+    
     </script>
+
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+<script> //early acess
+   const firebaseConfig = {
+  apiKey: "AIzaSyCmJmyU--fD4xKMzspPGPw82nVO1ob-KYE",
+  authDomain: "fhunding-email-signup.firebaseapp.com",
+  databaseURL: "https://fhunding-email-signup-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "fhunding-email-signup",
+  storageBucket: "fhunding-email-signup.firebasestorage.app",
+  messagingSenderId: "738155434549",
+  appId: "1:738155434549:web:bb33c45e9ce969a4dbd77c"
+};
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
+
+  document.getElementById("earlyAccessForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+    
+    const email = document.getElementById("emailInput").value.trim();
+    const message = document.getElementById("message");
+  
+   
+    
+    // Clear previous messages
+    message.textContent = "";
+    message.classList.remove("text-red-500", "text-green-500");
+
+    if (!validateEmail(email)) {
+      message.textContent = "Please enter a valid email address!";
+      message.classList.add("text-red-500");
+      return;
+    }
+
+    // Show loading state
+    message.textContent = "Submitting...";
+    message.classList.add("text-[#00ff88]");
+
+    // Push data to Firebase
+    database.ref("emails").push({ email })
+      .then(() => {
+        message.textContent = "🎉 Thanks for joining! We'll be in touch.";
+        message.classList.add("text-green-500");
+        document.getElementById("emailInput").value = "";
+
+        // Close modal after 2 seconds
+       setTimeout(() => {
+            closeModal();
+        }, 2000);
+        
+      })
+
+       
+      .catch((error) => {
+        console.error("Error:", error);
+        message.textContent = "⚠️ Error submitting form. Please try again.";
+        message.classList.add("text-red-500");
+      });
+  });
+
+  function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  }
+  </script>
+
+<script> //Waitlist Form 
+
+    const Wdatabase = firebase.database();
+         
+    document.getElementById("WaitlistForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      
+      const Wemail = document.getElementById("WaitlistEmail").value.trim();
+      const Wmessage = document.getElementById("WaitlistMessage");
+    
+     
+      
+      // Clear previous messages
+      Wmessage.textContent = "";
+      Wmessage.classList.remove("text-red-500", "text-green-500");
+  
+      if (!validateEmail(Wemail)) {
+        Wmessage.textContent = "Please enter a valid email address!";
+        Wmessage.classList.add("text-red-500");
+        return;
+      }
+  
+      // Show loading state
+      Wmessage.textContent = "Submitting...";
+      Wmessage.classList.add("text-[#00ff88]");
+  
+      // Push data to Firebase
+      Wdatabase.ref("emails").push({ Wemail })
+        .then(() => {
+          Wmessage.textContent = "🎉 Thanks for joining! We'll be in touch.";
+          Wmessage.classList.add("text-green-500");
+          document.getElementById("WaitlistEmail").value = "";
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          Wmessage.textContent = "⚠️ Error submitting form. Please try again.";
+          Wmessage.classList.add("text-red-500");
+        });
+    });
+  
+    function validateEmail(Wemail) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(Wemail);
+    }
+    </script>
+
+
+
      <script src="//code.tidio.co/kn2vlhdkdascw7egrrwzx5bjxakkaspa.js" async></script>
     
-
-    
-
  
 </body>
 </html>
