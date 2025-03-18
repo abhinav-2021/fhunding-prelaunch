@@ -24,6 +24,7 @@
             background: #00140d;
              color: #eaeaea;
         }
+        
 
         .logo {
             transform: scale(1);
@@ -32,17 +33,59 @@
               }
 
        
-        /* .logo_footer {
-            
-        } */
-
+       
         .gradient-text {
-            background: linear-gradient(45deg, #00ff88, #007853);
+            /* background: linear-gradient(45deg, #00ff88, #007853);
+            background-size: 300% 300%;
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
+            animation: shimmer 6s linear infinite; */
+            background: linear-gradient(
+            110deg,
+            rgba(0,255,136,1) 25%,
+            rgba(0,120,83,1) 50%,
+            rgba(0,255,136,1) 75%
+        );
+        background-size: 250% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        animation: gradient-flow 6s linear infinite;
+        position: relative;
+        text-shadow: 0 2px 8px rgba(0,255,136,0.15);
         }
 
+        @keyframes gradient-flow {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+
+    .gradient-text::before {
+        content: attr(data-text);
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: linear-gradient(
+            110deg,
+            rgba(255,255,255,0.15) 25%,
+            rgba(255,255,255,0.4) 50%,
+            rgba(255,255,255,0.15) 75%
+        );
+        background-size: 250% auto;
+        background-clip: text;
+        -webkit-background-clip: text;
+        animation: metallic-sheen 3s ease-in-out infinite;
+        opacity: 0.7;
+    }
+
+    @keyframes metallic-sheen {
+        0% { background-position: -100% 0; }
+        100% { background-position: 100% 0; }
+    }
+
+    
         .creative-box {
             background: linear-gradient(145deg, #002618, #00140d);
             border: 2px solid #004630;
@@ -106,11 +149,12 @@
     </style>
 </head>
 <body>
+        
     <!-- Header -->
-    <!-- Updated Header Section -->
+    
     <header class="fixed w-full top-0 z-50 bg-[#00140d]/90 backdrop-blur-sm shadow-sm">
         <nav class="w-full px-4 py-3 md:px-6 md:py-4 flex justify-between items-center">
-            <!-- Empty div for spacing -->
+            
             <div class="md:hidden w-8"></div>
             
            
@@ -123,6 +167,7 @@
             </button>
         </nav>
     </header>
+   
 
     <!-- Hero Section -->
     <section class="min-h-screen flex items-center justify-center text-center px-6 pt-24">
@@ -132,7 +177,7 @@
                 Funding Ecosystem
             </h1>
             <p class="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
-                India's first AI-powered Reward Based crowdfunding platform connecting visionary founders with strategic Fhunder's
+                Fhunding is India's first AI-powered Revenue Sharing Based crowdfunding platform connecting visionary founders with strategic Fhunder's
             </p>
             <button onclick="openModal()" class="bg-gradient-to-r from-[#00ff88] to-[#007853] text-black px-12 py-5 rounded-2xl text-lg font-bold hover:scale-105 transition-transform">
                 Get Early Access
@@ -148,7 +193,7 @@
                     
                     <div class="text-center">
                         <h3 class="text-2xl font-bold gradient-text mb-4">Early Access</h3>
-                        <p class="text-gray-300 mb-6">Join our exclusive waitlist for priority access</p>
+                        <p class="text-gray-300 mb-6">Join Fhunding's exclusive waitlist for priority access</p>
                         
                         <form id="earlyAccessForm" class="space-y-4">
                             <input type="email" id="emailInput" required placeholder="Enter your email " 
@@ -167,11 +212,11 @@
         
     </section>
 
-   <!-- Video Section (Modified) -->
-<section class="py-16 px-6"> <!-- Reduced vertical padding -->
-    <div class="container mx-auto max-w-2xl creative-box p-6 md:p-8"> <!-- Smaller container -->
-        <div class="video-container relative aspect-square w-64 h-64 md:w-96 md:h-96 mx-auto"> <!-- Explicit dimensions -->
-            <video autoplay muted loop playsinline class="w-full h-full object-cover rounded-lg"> <!-- Rounded corners -->
+   <!-- Video Section -->
+<section class="py-16 px-6"> 
+    <div class="container mx-auto max-w-2xl creative-box p-6 md:p-8"> 
+        <div class="video-container relative aspect-square w-64 h-64 md:w-96 md:h-96 mx-auto"> 
+            <video autoplay muted loop playsinline class="w-full h-full object-cover rounded-lg">
                 <source src="media/fhunding intro.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -187,74 +232,74 @@
         <div class="relative group">
             <!-- Carousel Container -->
             <div id="carousel" class="flex snap-x snap-mandatory overflow-x-auto scroll-smooth space-x-8 pb-6">
-                <!-- Carousel Items (Repeat 10x) -->
+                <!-- Carousel Items -->
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class=" aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/1.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/1.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/2.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/2.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/3.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/3.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/4.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/4.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/5.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/5.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/6.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/6.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/7.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/7.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/8.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/8.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/9.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/9.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
                 <div class="carousel-item creative-box min-w-[90%] md:min-w-[45%] lg:min-w-[30%] flex-shrink-0 snap-start">
                     <div class="p-8">
                         <div class="aspect-square mb-6 bg-[#002618] rounded-4xl overflow-hidden">
-                            <img src="media/caraousal/10.png" alt="Success Story" class="w-full h-full object-cover">
+                            <img src="media/caraousal/10.png" alt="Fhunding caraousal" class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -296,7 +341,7 @@
                 <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
                     <div class="text-4xl font-bold mb-4 gradient-text">01.</div>
                     <h3 class="text-2xl font-semibold mb-4">Profile Creation</h3>
-                    <p class="text-gray-300">Create your Crowdfunding Campaign on fhunding.com</p>
+                    <p class="text-gray-300">Create your Crowdfunding Campaign on fhunding</p>
                 </div>
                 <div class="creative-box p-8 hover:border-[#00ff88] transition-all">
                     <div class="text-4xl font-bold mb-4 gradient-text">02.</div>
@@ -327,7 +372,7 @@
                     <ul class="space-y-6 text-gray-300">
                         <li class="flex items-center gap-4">
                             <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
-                            Access to 5000+ verified Fhunder's
+                            Access to many verified Fhunder's
                         </li>
                         <li class="flex items-center gap-4">
                             <div class="w-8 h-8 bg-[#00ff88] text-black rounded-full flex items-center justify-center">✓</div>
@@ -368,29 +413,29 @@
             <div class="space-y-6">
                 <div class="faq-item creative-box p-6" data-open="false">
                     <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="text-xl font-semibold">What is Fhunding.com?</span>
+                        <span class="text-xl font-semibold">What is Fhunding?</span>
                         <i class="fas fa-chevron-down text-[#00ff88]"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
-                        <p class="pb-6 pt-4 text-gray-300">Fhunding.com is an innovative crowdfunding sharing platform designed to help early-stage startups and individuals secure funding from investors (fhunder's). We aim to revolutionize the funding ecosystem in India by making investment opportunities more accessible and transparent.</p>
+                        <p class="pb-6 pt-4 text-gray-300">Fhunding is an innovative crowdfunding sharing platform designed to help early-stage startups and individuals secure funding from investors (fhunder's). We aim to revolutionize the funding ecosystem in India by making investment opportunities more accessible and transparent.</p>
                     </div>
                 </div>
                 <div class="faq-item creative-box p-6" data-open="false">
                     <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="text-xl font-semibold">How can I apply for funding on Fhunding.com?</span>
+                        <span class="text-xl font-semibold">How can I apply for funding on Fhunding?</span>
                         <i class="fas fa-chevron-down text-[#00ff88]"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
-                        <p class="pb-6 pt-4 text-gray-300">Startups and individuals with innovative ideas can apply by signing up on our platform, submitting their project details, and choosing type of reward models. Once reviewed, eligible projects will be listed for investors to explore and support.</p>
+                        <p class="pb-6 pt-4 text-gray-300">Startups and individuals with innovative ideas can apply by signing up on fhunding, submitting their project details, and choosing type of models. Once reviewed, eligible projects will be listed for fhunder's to explore and support.</p>
                     </div>
                 </div>
                 <div class="faq-item creative-box p-6" data-open="false">
                     <button class="faq-toggle w-full px-6 py-4 text-left flex justify-between items-center">
-                        <span class="text-xl font-semibold">When will Fhunding.com go live?</span>
+                        <span class="text-xl font-semibold">When will Fhunding go live?</span>
                         <i class="fas fa-chevron-down text-[#00ff88]"></i>
                     </button>
                     <div class="faq-content px-6 pb-0 max-h-0 overflow-hidden">
-                        <p class="pb-6 pt-4 text-gray-300">We are actively working on building the platform and expect to launch soon. Stay updated by signing up for early access and following us on our social media channels.</p>
+                        <p class="pb-6 pt-4 text-gray-300">We are actively working on building the Fhunding and expect to launch soon. Stay updated by signing up for early access and following us on our social media channels.</p>
                     </div>
                 </div>
                                                 
@@ -402,7 +447,7 @@
     <section id="waitlist" class="py-24 px-6">
         <div class="container mx-auto max-w-4xl creative-box p-12 text-center">
             <h2 class="text-4xl font-bold mb-8 gradient-text">Join Our Exclusive Launch</h2>
-            <p class="text-xl text-gray-300 mb-12">Be among the first to experience next-gen funding</p>
+            <p class="text-xl text-gray-300 mb-12">Be among the first to experience next-gen funding through Fhunding</p>
             
             <form id="WaitlistForm" class="flex flex-col md:flex-row gap-4 justify-center items-center">
                 <input  id="WaitlistEmail" type="email" placeholder="Enter your email" 
@@ -427,15 +472,15 @@
         <div class="flex flex-col md:flex-row flex-wrap gap-8 md:gap-12 lg:gap-24">
             <!-- Brand Column -->
             <div class="w-full md:w-auto text-center md:text-left">
-                <img src="media/logo-no-background.png" alt="Fhunding" class="h-16 mx-auto md:mx-0 mb-6">
+                <img src="media/logo-no-background.png" alt="Fhunding logo" class="h-16 mx-auto md:mx-0 mb-6">
                 <div class="flex justify-center md:justify-start gap-6 mb-8 md:mb-0">
                     <a href="https://www.linkedin.com/company/fhunding/" class="text-[#00ff88] hover:text-white transition">
                         <i class="fab fa-linkedin-in text-2xl"></i>
                     </a>
-                    <a href="#" class="text-[#00ff88] hover:text-white transition">
+                    <a href="https://x.com/FhundingX" class="text-[#00ff88] hover:text-white transition">
                         <i class="fab fa-twitter text-2xl"></i>
                     </a>
-                    <a href="#" class="text-[#00ff88] hover:text-white transition">
+                    <a href="instagram.com/fhunding_official/" class="text-[#00ff88] hover:text-white transition">
                         <i class="fab fa-instagram text-2xl"></i>
                     </a>
                 </div>
@@ -465,7 +510,8 @@
                     <h4 class="text-lg font-bold text-[#00ff88] mb-4 text-center md:text-left">Contact</h4>
                     <ul class="space-y-3 text-gray-300 text-center md:text-left">
                         <li>fhunding@gmail.com</li>
-                        <li>+91 78798 32442</li>
+                        <li>+91 78798 32442 </li>           
+                        <li>+91 62660 62227</li>             
                         <li>Jabalpur, India</li>
                     </ul>
                 </div>
@@ -498,6 +544,7 @@
             });
         });
 
+       
         // Carousel Controls
     let currentSlide = 0;
     const carousel = document.getElementById('carousel');
